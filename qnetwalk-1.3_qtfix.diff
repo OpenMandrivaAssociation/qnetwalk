@@ -1,0 +1,21 @@
+diff -ur qnetwalk-1.3/cell.cpp qnetwalk-1.3_fix/cell.cpp
+--- qnetwalk-1.3/cell.cpp	2008-03-30 11:29:12.000000000 +0200
++++ qnetwalk-1.3_fix/cell.cpp	2012-05-12 22:53:14.000000000 +0200
+@@ -19,7 +19,7 @@
+ Cell::PixmapMap Cell::shadowpixmap;
+ Cell::PixmapMap Cell::connectedpixmap;
+ Cell::PixmapMap Cell::disconnectedpixmap;
+-Cell::Cell * Cell::focusedCell = 0;
++Cell * Cell::focusedCell = 0;
+ 
+ 
+ void Cell::setGameOver(bool b)
+@@ -28,7 +28,7 @@
+ }
+ 
+ 
+-Cell::Cell * Cell::focused()
++Cell * Cell::focused()
+ {
+     return focusedCell;
+ }

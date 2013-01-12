@@ -1,0 +1,24 @@
+--- qnetwalk.pro
++++ qnetwalk.pro
+@@ -30,11 +30,11 @@
+ man.files	= qnetwalk.6
+ INSTALLS       += man
+ 
+-tr.path		= /usr/share/qnetwalk/translations
++tr.path		= /usr/share/games/qnetwalk/translations
+ tr.files	= translations/*.qm
+ INSTALLS       += tr
+ 
+-sounds.path	= /usr/share/qnetwalk/sounds
++sounds.path	= /usr/share/games/qnetwalk/sounds
+ sounds.files	= sounds/*.wav
+ INSTALLS       += sounds
+ 
+@@ -46,7 +46,3 @@
+ icon.files	= menu/qnetwalk.xpm
+ INSTALLS       += icon
+ 
+-menu.path	= /usr/share/menu
+-menu.files	= menu/qnetwalk
+-INSTALLS       += menu
+-
