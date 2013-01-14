@@ -1,32 +1,21 @@
-#
-# spec file for package QNetWalk (Version 1.3)
-#
-# Copyright (c) 2008 Severin Leonhardt
-# This file and all modifications and additions to the pristine
-# package are under the same license as the package itself.
-#
-
-# norootforbuild
-
-%define Werror_cflags %nil
-
-Name:           qnetwalk
-BuildRequires:  gcc
-BuildRequires:  libqt4-devel
-License:        GNU General Public License (GPL)
-Group:          Games/Puzzles
-Summary:        Game for System Administrators
-Version:        1.3
-Release:        7.17
-URL:            http://qt.osdn.org.ua/qnetwalk.html
-BuildRoot:      %{_tmppath}/%{name}-%{version}-build
-Source0:        %{name}-%{version}.tar.bz2
-Patch0:         %{name}-%{version}.patch
-Patch1:         %{name}-1.3_qtfix.diff
+Summary:	Game for System Administrators
+Name:		qnetwalk
+Version:	1.3
+Release:	1
+License:	GPLv2+
+Group:		Games/Puzzles
+URL:		http://qt.osdn.org.ua/qnetwalk.html
+Source0:	%{name}-%{version}.tar.bz2
+Patch0:		qnetwalk-1.3-datapath.patch
+Patch1:		qnetwalk-1.3_qtfix.diff
+Patch2:		qnetwalk-1.3-sfmt.patch
+Patch3:		qnetwalk-1.3-desktop.patch
+BuildRequires:	qt4-devel
 
 %description
 This is a Qt-version of the popular NetWalk game for system administrators.
-You have to connect all computers to the central server with as few clicks as possible.
+You have to connect all computers to the central server with as few clicks
+as possible.
 
 Authors:
 --------
@@ -34,33 +23,24 @@ Authors:
 
 %prep
 %setup -q
-%patch0
+%patch0 -p0
 %patch1 -p1
+%patch2 -p1
+%patch3 -p1
 
 %build
-qmake
-make %{?_smp_mflags}
+%qmake_qt4
+%make
 
 %install
-make install INSTALL_ROOT=$RPM_BUILD_ROOT $INSTALL_TARGET
-
+%makeinstall_std INSTALL_ROOT=%{buildroot}
 
 %files
-%defattr(-,root,root)
 %doc COPYING ChangeLog README
-%{_prefix}/games/qnetwalk
-%{_datadir}/applications/qnetwalk.desktop
-%{_mandir}/man6/qnetwalk.6.gz
-%{_datadir}/pixmaps/qnetwalk.xpm
-%dir %{_datadir}/games/qnetwalk/
-%{_datadir}/games/qnetwalk/*
+%{_gamesbindir}/%{name}
+%{_datadir}/applications/%{name}.desktop
+%{_mandir}/man6/%{name}.6.*
+%{_datadir}/pixmaps/%{name}.xpm
+%dir %{_gamesdatadir}/%{name}
+%{_gamesdatadir}/%{name}/*
 
-%changelog
-* Sat Jul  2 2011 jengelh@medozas.de
-- Use %%_smp_mflags for parallel building
-- Strip %%clean section (not needed on BS)
-* Thu May 15 2008 prusnak@suse.cz
-- patched qmake project file (qnetwalk.patch)
-- slightly modified spec file
-* Mon Apr  7 2008 phoenixseve@gmx.de
-- initial package created (version 1.3)
