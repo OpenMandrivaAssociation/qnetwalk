@@ -1,7 +1,7 @@
 Summary:	Game for System Administrators
 Name:		qnetwalk
 Version:	1.3
-Release:	1
+Release:	2
 License:	GPLv2+
 Group:		Games/Puzzles
 URL:		http://qt.osdn.org.ua/qnetwalk.html
