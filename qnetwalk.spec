@@ -4,7 +4,7 @@ Version:	1.3
 Release:	2
 License:	GPLv2+
 Group:		Games/Puzzles
-URL:		http://qt.osdn.org.ua/qnetwalk.html
+URL:		https://qt.osdn.org.ua/qnetwalk.html
 Source0:	%{name}-%{version}.tar.bz2
 Patch0:		qnetwalk-1.3-datapath.patch
 Patch1:		qnetwalk-1.3_qtfix.diff
