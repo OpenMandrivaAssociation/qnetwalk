@@ -10,6 +10,7 @@ Patch0:		qnetwalk-1.3-datapath.patch
 Patch1:		qnetwalk-1.3_qtfix.diff
 Patch2:		qnetwalk-1.3-sfmt.patch
 Patch3:		qnetwalk-1.3-desktop.patch
+BuildRequires:	make
 BuildRequires:	qt4-devel
 
 %description
