@@ -1,0 +1,21 @@
+diff -urN qnetwalk-1.9.0/src/cell.cpp qnetwalk-1.9.0/src/cell.cpp
+--- qnetwalk-1.9.0/src/cell.cpp	2023-02-22 22:08:14.000000000 +0100
++++ qnetwalk-1.9.0/src/cell.cpp	2026-08-03 02:42:52.312563474 +0200
+@@ -19,7 +19,7 @@
+ Cell::PixmapMap Cell::shadowpixmap;
+ Cell::PixmapMap Cell::connectedpixmap;
+ Cell::PixmapMap Cell::disconnectedpixmap;
+-Cell * Cell::focusedCell = 0;
++Cell * Cell::focusedCell = nullptr;
+ 
+ 
+ void Cell::setGameOver(bool b)
+@@ -39,7 +39,7 @@
+     if(focusedCell)
+     {
+ 	Cell * previous = focusedCell;
+-	focusedCell = 0;
++	focusedCell = nullptr;
+         previous->changed = true;
+ 	previous->update();
+     }

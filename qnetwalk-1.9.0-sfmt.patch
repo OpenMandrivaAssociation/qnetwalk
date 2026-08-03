@@ -1,0 +1,20 @@
+diff -urN qnetwalk-1.9.0/src/mainwindow.cpp qnetwalk-1.9.0/src/mainwindow.cpp
+--- qnetwalk-1.9.0/src/mainwindow.cpp	2023-02-22 22:08:14.000000000 +0100
++++ qnetwalk-1.9.0/src/mainwindow.cpp	2026-08-03 02:42:52.343308006 +0200
+@@ -6,6 +6,7 @@
+ #include <QActionGroup>
+ #include <QApplication>
+ #include <QCloseEvent>
++#include <QDebug>
+ #include <QDesktopServices>
+ #include <QEventLoop>
+ #include <QFile>
+@@ -86,7 +87,7 @@
+ 	else if(argument == "-nosound") 
+ 	    isSound = false;
+ 	else 
+-        QTextStream(stderr) << "Unknown option: '" << argument << "'. Try -help.\n";
++        qWarning() << QString("Unknown option: '%1'. Try -help.").arg(argument);
+     }
+ 
+     setWindowTitle(tr("QNetWalk"));

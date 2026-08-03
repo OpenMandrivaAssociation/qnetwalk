@@ -1,0 +1,32 @@
+diff -urN qnetwalk-1.9.0/CMakeLists.txt qnetwalk-1.9.0/CMakeLists.txt
+--- qnetwalk-1.9.0/CMakeLists.txt	2023-02-22 22:08:14.000000000 +0100
++++ qnetwalk-1.9.0/CMakeLists.txt	2026-08-03 02:42:52.283480312 +0200
+@@ -12,7 +12,7 @@
+ set(QNETWALK_QT_COMPONENTS Widgets)
+ set(QNETWALK_QT_LIBRARIES Qt::Widgets)
+ set(QNETWALK_COMPILE_DEFINITIONS
+-	DATADIR="${CMAKE_INSTALL_PREFIX}/${CMAKE_INSTALL_DATADIR}/qnetwalk"
++	DATADIR="${CMAKE_INSTALL_PREFIX}/${CMAKE_INSTALL_DATADIR}/games/qnetwalk"
+ 	VERSION="${CMAKE_PROJECT_VERSION}"
+ )
+ 
+@@ -89,7 +89,7 @@
+ endif()
+ 
+ # installation
+-install(TARGETS qnetwalk RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR})
++install(TARGETS qnetwalk RUNTIME DESTINATION games)
+ install(FILES qnetwalk.6 DESTINATION ${CMAKE_INSTALL_MANDIR}/man6)
+ 
+ install(FILES pics/qnetwalk.png DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/icons/hicolor/16x16/apps)
+@@ -98,8 +98,8 @@
+ install(FILES menu/qnetwalk.metainfo.xml DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/metainfo)
+ 
+ if(ENABLE_SOUND)
+-	install(DIRECTORY sounds DESTINATION ${CMAKE_INSTALL_DATADIR}/qnetwalk)
++	install(DIRECTORY sounds DESTINATION ${CMAKE_INSTALL_DATADIR}/games/qnetwalk)
+ endif()
+ if(ENABLE_NLS)
+-	install(FILES ${QNETWALK_TRANSLATIONS_QMS} DESTINATION ${CMAKE_INSTALL_DATADIR}/qnetwalk/translations)
++	install(FILES ${QNETWALK_TRANSLATIONS_QMS} DESTINATION ${CMAKE_INSTALL_DATADIR}/games/qnetwalk/translations)
+ endif()
